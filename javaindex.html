@@ -1,0 +1,123 @@
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Joe's Hotdog Stand</title>
+
+	<style type="text/css">
+		  body {background-color: #ede5cc; color: #648813; font-weight: 500;
+      font-size: 30px; line-height: 40px; font-family: avenir}
+    script {padding-left: 50%;}
+	</style>
+</head>
+
+<body>
+
+  <div style ="background-color: #a90409; width: 100%; padding: 10px">
+    <h1 style="color: #edb489;"> <center> Welcome to Joe's Hotdogs! </center> </h1>
+  </div>
+
+
+  <div style ="background-color: #edb489; width: 100%; padding: 10px;">
+  <h2 style="color: #a90409;"> <center> Your order </center> </h2>
+  </div>
+
+
+  <center>
+	<script language="javascript">
+
+  var hotdog, fries, sodas, hotdogPrice, sodasPrice, friesPrice, discount = 10,
+  discountBool = false;
+
+	hotdog = prompt ("How many hotdogs?", "");
+  fries = prompt ("How many fries?", "");
+  sodas = prompt ("How many sodas?", "");
+
+  // total price of foods
+  hotdogPrice = (hotdog * 3.25);
+  friesPrice = (fries * 2.00);
+  sodasPrice = (sodas * 1.50);
+  // displayed to user
+  hotdogPrice_rounded = (Math.round(hotdogPrice * 100) / 100).toFixed(2);
+  friesPrice_rounded = (Math.round(friesPrice * 100) / 100).toFixed(2);
+  sodasPrice_rounded = (Math.round(sodasPrice * 100) / 100).toFixed(2);
+
+  if (hotdog!= null && hotdog > 0) {
+		document.write("# Hotdogs: " + hotdog + " at $3.25 is $" +
+    (hotdogPrice_rounded) + "<br />");
+  } else {
+    document.write("No hotdogs!" + "<br />");
+  }
+
+  if (fries != null && fries > 0) {
+    document.write("# Fries: " + fries + " at $2.00 is $" +
+    (friesPrice_rounded + "<br />"));
+  } else {
+    document.write("No fries!" + "<br />");
+
+  }
+
+  if (sodas != null && sodas > 0) {
+    document.write("# Sodas: " + sodas + " at $1.50 is $" +
+    (sodasPrice_rounded) + "<br />");
+  } else {
+    document.write("No sodas!" + "<br />");
+  }
+
+// if these are less than 20, apply %10 discount
+
+  var subtotal = (hotdogPrice + friesPrice + sodasPrice);
+  var subtotal_rounded = (Math.round(subtotal * 100) / 100).toFixed(2);
+
+
+  if ((subtotal) >= 20) {
+    document.write("You qualified for our " + discount + "% discount" +
+    "<br />");
+    discountBool = true;
+  }
+
+  // show subtotal
+
+  var discountSub = (0.90 * subtotal);
+  discountSub_rounded = (Math.round(discountSub * 100) / 100).toFixed(2);
+
+  // with discount
+  if (discountBool == true) {
+    document.write("Your subtotal is $" + (discountSub_rounded)
+    + "<br />");
+
+    // tax and total + their displayed numbers
+    var tax = (discountSub * .0625);
+    var tax_rounded = (Math.round(tax * 100) / 100).toFixed(2);
+    var total = (tax + discountSub);
+    var total_rounded = (Math.round(total * 100) / 100).toFixed(2);
+
+
+    document.write("State tax: $" + (tax_rounded) + "<br />");
+    document.write("Grand total: $" + (total_rounded)
+    + "<br />");
+
+// if no discount
+  } else {
+    document.write("Your subtotal is $" + subtotal_rounded + "<br />");
+
+
+    // tax and total + their displayed numbers
+    var tax = (subtotal * .0625);
+    var tax_rounded = (Math.round(tax * 100) / 100).toFixed(2);
+    var total = (tax + subtotal);
+    var total_rounded = (Math.round(total * 100) / 100).toFixed(2);
+
+    document.write("State tax: $" + (tax) + "<br />");
+    document.write("Grand total: $" + (total_rounded)
+     + "<br />");
+  }
+
+	</script>
+</center>
+
+
+
+
+
+</body></html>
